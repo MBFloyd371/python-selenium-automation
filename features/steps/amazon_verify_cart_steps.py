@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-from Behave import given, when, then
+from behave import given, when, then
 
-@then('Verify Sign in label visible and email input field present')
+@then('Verify Cart is empty')
 def verify_cart(context):
-    assert context.driver.current_url.find("//h2[contains(text(), 'Your Amazon')]"), f"Expected not in {driver.current_url.find()}"
+    #assert context.driver.current_url.find("//h2[contains(text(), 'Your Amazon')]"), f"Expected not in {driver.current_url.find()}"
+    context.tap.cart_page.verify()

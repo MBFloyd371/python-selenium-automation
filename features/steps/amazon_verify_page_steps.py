@@ -1,10 +1,9 @@
 from selenium.webdriver.common.by import By
-from Behave import given, when, then
+from behave import then
+from selenium.webdriver.support import expected_conditions as EC
 
-@then('Verify Sign in label visible and email input field present')
-def verify_page(context):
-    expected_text = 'Sign in'
-    actual_text = context.driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
-    assert expected_text == actual_text, f'Error! Expected {expected_text}, but got {actual_text}'
 
-    assert context.driver.current_url.find("//input[@type='email']"), f"Expected not in {driver.current_url.find()}"
+@then('Verify Sign in is opened')
+def verify(context):
+    #assert context.driver.current_url.find("//h1[@class='a-spacing-small']" and "//input[@type='email']"), f"Expected not in {context.driver.current_url.find()}"
+    context.sap.sign_in_page.verify()
